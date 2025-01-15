@@ -15,8 +15,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(AnvilMenu.class)
 public abstract class AnvilMenuMixin extends ItemCombinerMenu {
 
-    public AnvilMenuMixin(@Nullable MenuType<?> menuType, int i, Inventory inventory, ContainerLevelAccess containerLevelAccess, ItemCombinerMenuSlotDefinition itemCombinerMenuSlotDefinition) {
-        super(menuType, i, inventory, containerLevelAccess, itemCombinerMenuSlotDefinition);
+    public AnvilMenuMixin(@Nullable MenuType<?> menuType, int i, Inventory inventory, ContainerLevelAccess containerLevelAccess) {
+        super(menuType, i, inventory, containerLevelAccess);
     }
 
     @Redirect(

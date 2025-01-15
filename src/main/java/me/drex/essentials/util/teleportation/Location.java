@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.Relative;
+import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -48,7 +48,7 @@ public record Location(Vec3 pos, float yaw, float pitch, ResourceLocation dimens
         } else {
             ServerLevel level = getLevel(entity.getServer());
             Location currentLocation = new Location(entity);
-            if (entity.teleportTo(level, pos.x, pos.y, pos.z, EnumSet.noneOf(Relative.class),  Mth.wrapDegrees(yaw),  Mth.wrapDegrees(pitch), true)) {
+            if (entity.teleportTo(level, pos.x, pos.y, pos.z, EnumSet.noneOf(RelativeMovement.class), Mth.wrapDegrees(yaw), Mth.wrapDegrees(pitch))) {
                 if (saveLocation && entity instanceof ServerPlayer player) {
                     PlayerData playerData = DataStorage.updatePlayerData(player);
                     playerData.saveLocation(currentLocation);
